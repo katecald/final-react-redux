@@ -1,4 +1,3 @@
-import React, {Component} from 'react';
 import Stations from '../components/Stations';
 import {connect} from 'react-redux';
 
