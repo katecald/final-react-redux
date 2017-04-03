@@ -1,6 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router';
 
+import Albums from './Albums';
+import Songs from './Songs';
+
 export default function Artist (props) {
 
   const artist = props.selectedArtist;
@@ -10,17 +13,9 @@ export default function Artist (props) {
   return (
     <div>
       <h3>{ artist.name }</h3>
-      <ul className="nav nav-tabs">
-        <li><Link to={`/artists/${artist.id}/albums`}>ALBUMS</Link></li>
-        <li><Link to={`/artists/${artist.id}/songs`}>SONGS</Link></li>
-      </ul>
-      {
-        props.children && React.cloneElement(props.children, Object.assign({}, props, {
-          albums: albums,
-          songs: songs
-        }))
-      }
+      <Albums albums={albums} />
+      <Songs songs={songs} />
     </div>
   );
 
-};
+}
